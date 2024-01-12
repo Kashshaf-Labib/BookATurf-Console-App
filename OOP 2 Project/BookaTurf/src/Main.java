@@ -40,26 +40,25 @@ public class Main {
                 case 1:
                     try {
                         UserInterface.registerCustomer();
-                        Utility.getAllUserDetails();
                     } catch (UserValidationException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
-            /*case 2:
+                case 2:
                 try {
                     UserInterface.loginCustomer();
                 } catch (UserValidationException e) {
                     System.out.println(e.getMessage());
                 }
                 break;
-            case 3:
-                try {
-                    UserInterface.loginAdmin();
-                } catch (UserValidationException e) {
-                    System.out.println(e.getMessage());
-                }
-                break; */
-             case 4:
+//                case 3:
+//                try {
+//                    UserInterface.loginAdmin();
+//                } catch (UserValidationException e) {
+//                    System.out.println(e.getMessage());
+//                }
+//                break;
+                case 4:
                 System.out.println("Thank you for using BookATurf");
                 return;
                 default:
@@ -72,4 +71,4 @@ public class Main {
     }
 }
 
-//TODO : Create instances of admin and check the login of the admins.
+//TODO : Complete rest of the options in UserInterface's loginCustomer method.

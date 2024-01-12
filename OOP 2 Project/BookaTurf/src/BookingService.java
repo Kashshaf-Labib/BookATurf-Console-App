@@ -1,8 +1,8 @@
 public class BookingService {
 
-    public void bookSlot(IBook book,int slotID,int amount)
+    public static void bookSlot(IBook turf,int slotID,int amount)
     {
-        Book bookedSlot=book.bookSlot(slotID,amount);
+        Book bookedSlot=turf.bookSlot(slotID,amount);
         if(bookedSlot!=null)
         {
             System.out.println("Slot booked successfully");
