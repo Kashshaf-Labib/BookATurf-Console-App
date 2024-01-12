@@ -5,7 +5,7 @@ public class UserRegistrationService {
         if(!UserValidator.checkDuplicateUserName(userName))
         {
             int userID=RandomNumberGenerator.generateRandomNumber(10000,99999);
-            while(!UserValidator.checkDuplicateUserID(userID))
+            while(UserValidator.checkDuplicateUserID(userID))
             {
                 userID=RandomNumberGenerator.generateRandomNumber(10000,99999);
             }

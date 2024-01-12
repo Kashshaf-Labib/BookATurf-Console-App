@@ -25,19 +25,22 @@ public class Main {
 
         System.out.println();
 
-        System.out.println("Please select one of the above options:");
-
         Scanner sc=new Scanner(System.in);
 
-        int option=sc.nextInt();
 
         while(true)
         {
+
+            System.out.println("Please select an option:");
+
+            int option=sc.nextInt();
+
             switch(option)
             {
                 case 1:
                     try {
                         UserInterface.registerCustomer();
+                        Utility.getAllUserDetails();
                     } catch (UserValidationException e) {
                         System.out.println(e.getMessage());
                     }
@@ -58,7 +61,7 @@ public class Main {
                 break; */
              case 4:
                 System.out.println("Thank you for using BookATurf");
-                break;
+                return;
                 default:
                     System.out.println("Please select a valid option");
                     break;

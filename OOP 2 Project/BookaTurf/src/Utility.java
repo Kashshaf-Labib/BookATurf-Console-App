@@ -13,7 +13,7 @@ public class Utility
     {
         for(Admin admin:adminList)
         {
-            System.out.println("Admin ID: "+admin.getAdminID()+" Admin Name: "+admin.getName()+" Admin Role: "+admin.getAdminID());
+            System.out.println("Admin ID: "+admin.getAdminID()+"; Admin Name: "+admin.getName()+"; Admin Role: "+admin.getAdminID());
         }
     }
 
@@ -21,7 +21,7 @@ public class Utility
     {
         for(User user:userList)
         {
-            System.out.println("User ID: "+user.userID+" User Name: "+user.userName);
+            System.out.println("User ID: "+user.userID+"; User Name: "+user.userName+"; User Email: "+user.userEmail);
         }
     }
 
@@ -29,7 +29,7 @@ public class Utility
     {
         for(Turf turf:turfList)
         {
-            System.out.println("Turf ID: "+turf.turfID+" Turf Name: "+turf.turfName+" Turf Location: "+turf.turfLocation+" Turf Capacity: "+turf.playerCapacity);
+            System.out.println("Turf ID: "+turf.turfID+"; Turf Name: "+turf.turfName+"; Turf Location: "+turf.turfLocation+"; Turf Capacity: "+turf.playerCapacity);
         }
     }
 
