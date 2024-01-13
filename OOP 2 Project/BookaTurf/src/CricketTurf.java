@@ -1,4 +1,5 @@
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CricketTurf extends Turf implements IDetails,IAvailability,IBook
@@ -7,15 +8,15 @@ public class CricketTurf extends Turf implements IDetails,IAvailability,IBook
     public int pitchLength;
 
     public int pitchBreadth;
-    public CricketTurf(int turfID, String turfName, String turfLocation, int playerCapacity, List<TurfSlot> turfSlotList,int pitchLength,int pitchBreadth)
+    public CricketTurf(int turfID, String turfName, String turfLocation, int playerCapacity,int pitchLength,int pitchBreadth)
     {
         this.turfID=turfID;
         this.turfName=turfName;
         this.turfLocation=turfLocation;
         this.playerCapacity=playerCapacity;
-        this.turfSlotList=turfSlotList;
         this.pitchLength=pitchLength;
         this.pitchBreadth=pitchBreadth;
+        turfSlotList=new ArrayList<>();
     }
 
     @Override

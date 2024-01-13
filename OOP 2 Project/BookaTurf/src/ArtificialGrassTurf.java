@@ -1,15 +1,16 @@
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArtificialGrassTurf extends Turf implements IDetails,IAvailability,IBook
 {
-    public ArtificialGrassTurf(int turfID, String turfName, String turfLocation, int playerCapacity, List<TurfSlot> turfSlotList)
+    public ArtificialGrassTurf(int turfID, String turfName, String turfLocation, int playerCapacity)
     {
         this.turfID=turfID;
         this.turfName=turfName;
         this.turfLocation=turfLocation;
         this.playerCapacity=playerCapacity;
-        this.turfSlotList=turfSlotList;
+        turfSlotList=new ArrayList<>();
     }
     @Override
     public void getDetails(int turfID) {

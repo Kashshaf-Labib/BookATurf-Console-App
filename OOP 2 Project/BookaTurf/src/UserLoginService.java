@@ -13,4 +13,16 @@ public class UserLoginService {
         return false;
 
     }
+
+    public static boolean adminLogin(int adminID,String password)
+    {
+        for (Admin admin : Utility.adminList)
+        {
+            if (admin.adminID == adminID && admin.password.equals(password))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -10,7 +10,7 @@ public class SlotPricingService {
         {
             throw new DurationException("Duration of a slot has to be at least 1 hour");
         }
-        else if(duration.toHours()<=2)
+        else if(duration.toHours()<2)
         {
             slot.setSlotPrice(1000);
         }

@@ -1,10 +1,12 @@
 public class Admin {
 
-    private int adminID;
+    public int adminID;
 
     public String adminName;
 
-    private String adminRole;
+    public String adminRole;
+
+    public String password;
 
 
     public void setAdminID(int adminID)
@@ -23,15 +25,14 @@ public class Admin {
     }
 
 
-    public void setAdminRole(String adminRole)
+    public Admin(int adminID,String adminName,String adminRole,String password)
     {
+        this.adminID=adminID;
+        this.adminName=adminName;
         this.adminRole=adminRole;
+        this.password=password;
     }
 
-    public String getAdminRole()
-    {
-        return this.adminRole;
-    }
 
 
 }
