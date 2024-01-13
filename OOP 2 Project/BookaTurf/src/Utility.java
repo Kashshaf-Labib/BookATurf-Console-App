@@ -43,6 +43,30 @@ public class Utility
 
     }
 
+    public static User getUserbyID(int userID)
+    {
+        User user=null;
+        if(!userList.isEmpty())
+        {
+            for(User u:userList)
+            {
+                if(u.userID==userID)
+                {
+                    user=u;
+                    break;
+                }
+            }
+
+            return user;
+
+        }
+        else
+        {
+            return null;
+        }
+
+    }
+
     public static void getAllTurfDetails()
     {
         if(!turfList.isEmpty())
@@ -58,6 +82,29 @@ public class Utility
             System.out.println("No available turfs in the system currently");
         }
 
+    }
+
+    public static void getBookingDetails(int userID)
+    {
+        User user=getUserbyID(userID);
+        if(user!=null)
+        {
+            if(!user.bookingList.isEmpty())
+            {
+                for(Book book:user.bookingList)
+                {
+                    book.getBookingDetails();
+                }
+            }
+            else
+            {
+                System.out.println("No bookings done yet");
+            }
+        }
+        else
+        {
+            System.out.println("User not found");
+        }
     }
 
 

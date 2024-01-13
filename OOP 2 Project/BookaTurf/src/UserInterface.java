@@ -65,7 +65,7 @@ public class UserInterface {
 
             System.out.println();
 
-            System.out.println("3. Check Slot availability in your desired time");
+            System.out.println("3. Check slot availability in your desired time");
 
             System.out.println();
 
@@ -101,7 +101,7 @@ public class UserInterface {
                         for (Turf t : Utility.turfList) {
                             if (t.turfID == turfID) {
                                 found = true;
-                                BookingService.bookSlot(t, slotID, amount);
+                                BookingService.bookSlot(t, slotID, amount,userID);
                                 break;
                             }
                         }
@@ -140,10 +140,9 @@ public class UserInterface {
                             System.out.println("Invalid input. Please enter the time in HH:mm format.");
                             break;
                         }
-                   case 4:
-                        System.out.println("Please enter your user ID");
-                        int userID1=sc.nextInt();
-                        //BookingService.getBookingDetails(userID1);
+                    case 4:
+                        System.out.println("Booking Details: ");
+                        Utility.getBookingDetails(userID);
                         break;
                     case 5:
                         System.out.println("You have been logged out successfully");

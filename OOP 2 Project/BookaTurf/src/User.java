@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     public int userID;
     public String userName;
     public String userEmail;
     private String password;
+
+    public List<Book> bookingList=new ArrayList<>();
 
 
 
