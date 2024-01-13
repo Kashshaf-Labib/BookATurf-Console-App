@@ -63,7 +63,7 @@ public class UserInterface {
 
             System.out.println();
 
-            System.out.println("3. Check Slot availability in a specific time");
+            System.out.println("3. Check Slot availability in your desired time");
 
             System.out.println();
 
@@ -75,31 +75,35 @@ public class UserInterface {
 
             System.out.println();
 
-            System.out.println("Please select an option: ");
 
-            int option=sc.nextInt();
-
-            switch (option)
+            while(true)
             {
-                case 1:
-                    Utility.getAllTurfDetails();
-                    break;
-                case 2:
-                    System.out.println("Please enter the turf ID to book a slot: ");
-                    int turfID=sc.nextInt();
-                    System.out.println("Please enter the slot ID to book: ");
-                    int slotID=sc.nextInt();
-                    System.out.println("Please enter the amount to pay: ");
-                    int amount=sc.nextInt();
 
-                    for(Turf t:Utility.turfList)
-                    {
-                        if(t.turfID==turfID)
+                System.out.println("Please select an option from the Dashboard: ");
+
+                int option=sc.nextInt();
+
+                switch (option)
+                {
+                    case 1:
+                        Utility.getAllTurfDetails();
+                        break;
+                    case 2:
+                        System.out.println("Please enter the turf ID to book a slot: ");
+                        int turfID=sc.nextInt();
+                        System.out.println("Please enter the slot ID to book: ");
+                        int slotID=sc.nextInt();
+                        System.out.println("Please enter the amount to pay: ");
+                        int amount=sc.nextInt();
+
+                        for(Turf t:Utility.turfList)
                         {
-                            BookingService.bookSlot(t,slotID,amount);
-                            break;
+                            if(t.turfID==turfID)
+                            {
+                                BookingService.bookSlot(t,slotID,amount);
+                                break;
+                            }
                         }
-                    }
 
 //                case 3:
 //                    System.out.println("Please enter the turf ID to check slot availability");
@@ -115,14 +119,15 @@ public class UserInterface {
 //                    int userID1=sc.nextInt();
 //                    BookingService.getBookingDetails(userID1);
 //                    break;
-                case 5:
-                    System.out.println("You have been logged out successfully");
-                    break;
-                default:
-                    System.out.println("Please enter a valid option");
-                    break;
-            }
+                    case 5:
+                        System.out.println("You have been logged out successfully");
+                        return;
+                    default:
+                        System.out.println("Please enter a valid option");
+                        break;
+                }
 
+            }
         }
         else
         {

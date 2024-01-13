@@ -31,7 +31,7 @@ public class Main {
         while(true)
         {
 
-            System.out.println("Please select an option:");
+            System.out.println("Please select an option from the home page:");
 
             int option=sc.nextInt();
 
@@ -45,12 +45,12 @@ public class Main {
                     }
                     break;
                 case 2:
-                try {
-                    UserInterface.loginCustomer();
-                } catch (UserValidationException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
+                    try {
+                        UserInterface.loginCustomer();
+                    } catch (UserValidationException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
 //                case 3:
 //                try {
 //                    UserInterface.loginAdmin();

@@ -11,26 +11,53 @@ public class Utility
 
     public static void getAllAdminDetails()
     {
-        for(Admin admin:adminList)
+        if(!adminList.isEmpty())
         {
-            System.out.println("Admin ID: "+admin.getAdminID()+"; Admin Name: "+admin.getName()+"; Admin Role: "+admin.getAdminID());
+            for(Admin admin:adminList)
+            {
+                System.out.println("Admin ID: "+admin.getAdminID()+"; Admin Name: "+admin.getName()+"; Admin Role: "+admin.getAdminID());
+            }
+
         }
+        else
+        {
+            System.out.println("No admins registered yet");
+        }
+
     }
 
     public static void getAllUserDetails()
     {
-        for(User user:userList)
+        if(!userList.isEmpty())
         {
-            System.out.println("User ID: "+user.userID+"; User Name: "+user.userName+"; User Email: "+user.userEmail);
+            for(User user:userList)
+            {
+                System.out.println("User ID: "+user.userID+"; User Name: "+user.userName+"; User Email: "+user.userEmail);
+            }
+
         }
+        else
+        {
+            System.out.println("No users registered yet");
+        }
+
     }
 
     public static void getAllTurfDetails()
     {
-        for(Turf turf:turfList)
+        if(!turfList.isEmpty())
         {
-            System.out.println("Turf ID: "+turf.turfID+"; Turf Name: "+turf.turfName+"; Turf Location: "+turf.turfLocation+"; Turf Capacity: "+turf.playerCapacity);
+            for(Turf turf:turfList)
+            {
+                System.out.println("Turf ID: "+turf.turfID+"; Turf Name: "+turf.turfName+"; Turf Location: "+turf.turfLocation+"; Turf Capacity: "+turf.playerCapacity);
+            }
+
         }
+        else
+        {
+            System.out.println("No available turfs in the system currently");
+        }
+
     }
 
 
