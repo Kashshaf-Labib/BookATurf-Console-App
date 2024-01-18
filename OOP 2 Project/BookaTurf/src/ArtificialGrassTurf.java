@@ -50,10 +50,12 @@ public class ArtificialGrassTurf extends Turf implements IDetails,IAvailability,
     public Book bookSlot(int slotID,int amount)
     {
         Book book=null;
+        boolean found=false;
         for(TurfSlot turfSlot:turfSlotList)
         {
             if(turfSlot.slotID==slotID)
             {
+                found=true;
                 if(!turfSlot.isBooked())
                 {
                     if(amount>=turfSlot.getSlotPrice())
@@ -76,11 +78,11 @@ public class ArtificialGrassTurf extends Turf implements IDetails,IAvailability,
                     return null;
                 }
             }
-            else
-            {
-                System.out.println("Please enter a valid slot ID");
-                return null;
-            }
+        }
+
+        if(!found)
+        {
+            System.out.println("Slot not found, please enter a valid slot ID");
         }
         return book;
     }

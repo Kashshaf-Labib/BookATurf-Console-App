@@ -74,6 +74,18 @@ public class Utility
             for(Turf turf:turfList)
             {
                 System.out.println("Turf ID: "+turf.turfID+"; Turf Name: "+turf.turfName+"; Turf Location: "+turf.turfLocation+"; Turf Capacity: "+turf.playerCapacity);
+                System.out.println("***Available Slots***");
+                if(!turf.turfSlotList.isEmpty())
+                {
+                    for(TurfSlot turfSlot:turf.turfSlotList)
+                    {
+                        System.out.println("Slot ID: "+turfSlot.slotID+"; Starting Time: "+turfSlot.startingTime+"; Ending Time: "+turfSlot.endingTime+"; Slot Price: "+turfSlot.getSlotPrice());
+                    }
+                }
+                else
+                {
+                    System.out.println("No slots available currently");
+                }
             }
 
         }

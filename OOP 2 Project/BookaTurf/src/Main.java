@@ -41,6 +41,12 @@ public class Main {
 
         cricketTurf.turfSlotList.add(slot3);
 
+        Utility.turfList.add(artificialGrassTurf);
+
+        Utility.turfList.add(natualGrassTurf);
+
+        Utility.turfList.add(cricketTurf);
+
 
 
 
@@ -100,4 +106,4 @@ public class Main {
     }
 }
 
-//TODO : Complete rest of the options in UserInterface's loginCustomer method.
+//TODO : Check the Main code with test cases

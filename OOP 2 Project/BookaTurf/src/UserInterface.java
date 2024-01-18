@@ -110,12 +110,12 @@ public class UserInterface {
                         break;
 
                     case 3:
-                        System.out.println("Please enter the turf ID to check slot availability");
+                        System.out.println("Please enter the turf ID to check slot availability:");
                         int trfID = sc.nextInt();
-                        System.out.println("Please enter the starting time in HH:mm format (24 hour format)");
-                        String startTime = sc.nextLine();
+                        System.out.println("Please enter the starting time in HH:mm format (24 hour format):");
+                        String startTime = sc.next();
                         System.out.println("Please enter the ending time in HH:mm format (24 hour format)");
-                        String endTime = sc.nextLine();
+                        String endTime = sc.next();
 
                         try {
                             LocalTime startingTime = LocalTime.parse(startTime, DateTimeFormatter.ofPattern("HH:mm"));
@@ -127,7 +127,15 @@ public class UserInterface {
                             for (Turf t : Utility.turfList) {
                                 if (t.turfID == trfID) {
                                     flag = true;
-                                    SlotAvailabilityService.isSlotAvailable(t, startingTime, endingTime);
+                                    int id=SlotAvailabilityService.isSlotAvailable(t, startingTime, endingTime);
+                                    if(id!=-1)
+                                    {
+                                        System.out.println("Slot is available in the given time");
+                                    }
+                                    else
+                                    {
+                                        System.out.println("Slot is not available in the given time");
+                                    }
                                     break;
                                 }
                             }
@@ -158,126 +166,126 @@ public class UserInterface {
 
     }
 
-    public static void loginAdmin() throws UserValidationException {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Please enter your adminID and password to login");
-
-        System.out.println();
-
-        System.out.println("Admin ID: ");
-
-        int adminID = sc.nextInt();
-
-        System.out.println();
-
-        System.out.println("Please enter your password: ");
-
-        String password = sc.next();
-
-        if (UserLoginService.adminLogin(adminID, password)) {
-            System.out.println("Login successful...");
-
-            System.out.println();
-
-            System.out.println("**** Admin Dashboard ****");
-
-            System.out.println();
-
-            System.out.println("1. Get details of all available turfs");
-
-            System.out.println();
-
-            System.out.println("2. Add a new turf");
-
-            System.out.println();
-
-            System.out.println("3. Add a new slot to a turf");
-
-            System.out.println();
-
-            System.out.println("4. Logout");
-
-            System.out.println();
-
-            while(true)
-            {
-                System.out.println("Please select an option from the Admin Dashboard: ");
-
-                int option=sc.nextInt();
-
-                switch(option)
-                {
-                    case 1:
-                        Utility.getAllTurfDetails();
-                        break;
-
-                    case 2:
-
-                        System.out.println("Please enter the turf type: ");
-
-                        String turfType=sc.next();
-
-                        System.out.println("Please enter the turf ID: ");
-
-                        int turfID=sc.nextInt();
-
-                        System.out.println("Please enter the turf name: ");
-
-                        String turfName=sc.next();
-
-                        System.out.println("Please enter the turf location: ");
-
-                        String turfLocation=sc.next();
-
-                        System.out.println();
-
-                        System.out.println("Please enter the player capacity: ");
-
-                        int playerCapacity=sc.nextInt();
-
-                        if(turfType.equals("CricketTurf"))
-                        {
-                            System.out.println("Please enter the pitch length: ");
-
-                            int pitchLength=sc.nextInt();
-
-                            System.out.println("Please enter the pitch breadth: ");
-
-                            int pitchBreadth=sc.nextInt();
-
-                            CricketTurf cricketTurf=new CricketTurf(turfID,turfName,turfLocation,playerCapacity,pitchLength,pitchBreadth);
-
-                            Utility.turfList.add(cricketTurf);
-                        }
-
-                        else if(turfType.equals("ArtificialGrassTurf"))
-                        {
-                            ArtificialGrassTurf artificialGrassTurf=new ArtificialGrassTurf(turfID,turfName,turfLocation,playerCapacity);
-
-                            Utility.turfList.add(artificialGrassTurf);
-                        }
-
-                        else if(turfType.equals("NaturalGrassTurf"))
-                        {
-                            NatualGrassTurf natualGrassTurf=new NatualGrassTurf(turfID,turfName,turfLocation,playerCapacity);
-
-                            Utility.turfList.add(natualGrassTurf);
-                        }
-
-                        else
-                        {
-                            System.out.println("Please enter a valid turf type");
-                        }
-
-
-
-
-
-                }
-            }
-
-        }
-    }
+//    public static void loginAdmin() throws UserValidationException {
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.println("Please enter your adminID and password to login");
+//
+//        System.out.println();
+//
+//        System.out.println("Admin ID: ");
+//
+//        int adminID = sc.nextInt();
+//
+//        System.out.println();
+//
+//        System.out.println("Please enter your password: ");
+//
+//        String password = sc.next();
+//
+//        if (UserLoginService.adminLogin(adminID, password)) {
+//            System.out.println("Login successful...");
+//
+//            System.out.println();
+//
+//            System.out.println("**** Admin Dashboard ****");
+//
+//            System.out.println();
+//
+//            System.out.println("1. Get details of all available turfs");
+//
+//            System.out.println();
+//
+//            System.out.println("2. Add a new turf");
+//
+//            System.out.println();
+//
+//            System.out.println("3. Add a new slot to a turf");
+//
+//            System.out.println();
+//
+//            System.out.println("4. Logout");
+//
+//            System.out.println();
+//
+//            while(true)
+//            {
+//                System.out.println("Please select an option from the Admin Dashboard: ");
+//
+//                int option=sc.nextInt();
+//
+//                switch(option)
+//                {
+//                    case 1:
+//                        Utility.getAllTurfDetails();
+//                        break;
+//
+//                    case 2:
+//
+//                        System.out.println("Please enter the turf type: ");
+//
+//                        String turfType=sc.next();
+//
+//                        System.out.println("Please enter the turf ID: ");
+//
+//                        int turfID=sc.nextInt();
+//
+//                        System.out.println("Please enter the turf name: ");
+//
+//                        String turfName=sc.next();
+//
+//                        System.out.println("Please enter the turf location: ");
+//
+//                        String turfLocation=sc.next();
+//
+//                        System.out.println();
+//
+//                        System.out.println("Please enter the player capacity: ");
+//
+//                        int playerCapacity=sc.nextInt();
+//
+//                        if(turfType.equals("CricketTurf"))
+//                        {
+//                            System.out.println("Please enter the pitch length: ");
+//
+//                            int pitchLength=sc.nextInt();
+//
+//                            System.out.println("Please enter the pitch breadth: ");
+//
+//                            int pitchBreadth=sc.nextInt();
+//
+//                            CricketTurf cricketTurf=new CricketTurf(turfID,turfName,turfLocation,playerCapacity,pitchLength,pitchBreadth);
+//
+//                            Utility.turfList.add(cricketTurf);
+//                        }
+//
+//                        else if(turfType.equals("ArtificialGrassTurf"))
+//                        {
+//                            ArtificialGrassTurf artificialGrassTurf=new ArtificialGrassTurf(turfID,turfName,turfLocation,playerCapacity);
+//
+//                            Utility.turfList.add(artificialGrassTurf);
+//                        }
+//
+//                        else if(turfType.equals("NaturalGrassTurf"))
+//                        {
+//                            NatualGrassTurf natualGrassTurf=new NatualGrassTurf(turfID,turfName,turfLocation,playerCapacity);
+//
+//                            Utility.turfList.add(natualGrassTurf);
+//                        }
+//
+//                        else
+//                        {
+//                            System.out.println("Please enter a valid turf type");
+//                        }
+//
+//
+//
+//
+//
+//                }
+//            }
+//
+//        }
+//    }
 }
