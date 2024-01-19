@@ -13,14 +13,16 @@ public class ArtificialGrassTurf extends Turf implements IDetails,IAvailability,
         turfSlotList=new ArrayList<>();
     }
     @Override
-    public void getDetails(int turfID) {
+    public void getDetails() {
 
+        System.out.println("***Turf Details***");
         System.out.println("Turf ID: "+turfID);
         System.out.println("Turf Name: "+turfName);
         System.out.println("Turf Location: "+turfLocation);
         System.out.println("Player Capacity: "+playerCapacity);
         System.out.println("Turf Type: Artificial Grass Turf");
-        System.out.println("Turf Slot Details:");
+        System.out.println();
+        System.out.println("***Turf Slot Details***");
         if(!turfSlotList.isEmpty())
         {
             for(TurfSlot turfSlot:turfSlotList) {
@@ -31,6 +33,7 @@ public class ArtificialGrassTurf extends Turf implements IDetails,IAvailability,
         {
             System.out.println("No slots available currently");
         }
+        System.out.println();
 
     }
 

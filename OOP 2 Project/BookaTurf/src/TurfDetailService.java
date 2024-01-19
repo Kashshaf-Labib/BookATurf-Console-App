@@ -1,8 +1,8 @@
 public class TurfDetailService {
 
-    public void getTurfDetails(int turfID,IDetails turf)
+    public static void getTurfDetails(IDetails turf)
     {
-        turf.getDetails(turfID);
+        turf.getDetails();
     }
 
 }

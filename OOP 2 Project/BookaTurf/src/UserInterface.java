@@ -85,7 +85,10 @@ public class UserInterface {
 
                 switch (option) {
                     case 1:
-                        Utility.getAllTurfDetails();
+                        for(Turf t:Utility.turfList)
+                        {
+                            TurfDetailService.getTurfDetails(t);
+                        }
                         break;
                     case 2:
                         System.out.println("Please enter the turf ID to book a slot: ");
@@ -110,8 +113,6 @@ public class UserInterface {
                         break;
 
                     case 3:
-                        System.out.println("Please enter the turf ID to check slot availability:");
-                        int trfID = sc.nextInt();
                         System.out.println("Please enter the starting time in HH:mm format (24 hour format):");
                         String startTime = sc.next();
                         System.out.println("Please enter the ending time in HH:mm format (24 hour format)");
@@ -124,29 +125,28 @@ public class UserInterface {
 
                             boolean flag = false;
 
-                            for (Turf t : Utility.turfList) {
-                                if (t.turfID == trfID) {
-                                    flag = true;
-                                    int id=SlotAvailabilityService.isSlotAvailable(t, startingTime, endingTime);
-                                    if(id!=-1)
-                                    {
-                                        System.out.println("Slot is available in the given time");
-                                    }
-                                    else
-                                    {
-                                        System.out.println("Slot is not available in the given time");
-                                    }
+
+                            for(Turf t:Utility.turfList)
+                            {
+                                int id=SlotAvailabilityService.isSlotAvailable(t, startingTime, endingTime);
+                                if(id!=-1)
+                                {
+                                    flag=true;
+                                    System.out.println("Slot is available in the given time in "+t.turfName);
                                     break;
                                 }
                             }
-                            if (!flag) {
-                                System.out.println("Please enter a valid turf ID");
+                            if(!flag)
+                            {
+                                System.out.println("Slot is not available in the given time");
                             }
+
 
                         } catch (Exception e) {
                             System.out.println("Invalid input. Please enter the time in HH:mm format.");
                             break;
                         }
+                        break;
                     case 4:
                         System.out.println("Booking Details: ");
                         Utility.getBookingDetails(userID);

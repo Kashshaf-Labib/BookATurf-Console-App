@@ -3,28 +3,10 @@ import java.util.List;
 
 public class Utility
 {
-    public static List<Admin> adminList=new ArrayList<>();
 
     public static List<User> userList=new ArrayList<>();
 
     public static List<Turf> turfList=new ArrayList<>();
-
-    public static void getAllAdminDetails()
-    {
-        if(!adminList.isEmpty())
-        {
-            for(Admin admin:adminList)
-            {
-                System.out.println("Admin ID: "+admin.getAdminID()+"; Admin Name: "+admin.getName()+"; Admin Role: "+admin.getAdminID());
-            }
-
-        }
-        else
-        {
-            System.out.println("No admins registered yet");
-        }
-
-    }
 
     public static void getAllUserDetails()
     {
@@ -73,7 +55,9 @@ public class Utility
         {
             for(Turf turf:turfList)
             {
+                System.out.println("***Available Turf Details:***");
                 System.out.println("Turf ID: "+turf.turfID+"; Turf Name: "+turf.turfName+"; Turf Location: "+turf.turfLocation+"; Turf Capacity: "+turf.playerCapacity);
+                System.out.println();
                 System.out.println("***Available Slots***");
                 if(!turf.turfSlotList.isEmpty())
                 {
@@ -81,10 +65,12 @@ public class Utility
                     {
                         System.out.println("Slot ID: "+turfSlot.slotID+"; Starting Time: "+turfSlot.startingTime+"; Ending Time: "+turfSlot.endingTime+"; Slot Price: "+turfSlot.getSlotPrice());
                     }
+                    System.out.println();
                 }
                 else
                 {
                     System.out.println("No slots available currently");
+                    System.out.println();
                 }
             }
 
